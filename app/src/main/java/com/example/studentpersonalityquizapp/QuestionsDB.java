@@ -8,9 +8,9 @@ public class QuestionsDB implements Serializable {
      *
      */
     private static final long serialVersionUID = 1L;
-    private Map<Integer,String> question;
-    private Map<Integer,Map<String,Integer>> answers;
-
+    private Map<Integer, String> question;
+    private Map<Integer, Map<String, Integer>> answers;
+//android studio shishul
     public QuestionsDB(Map<Integer, String> question, Map<Integer, Map<String, Integer>> answers) {
         this.question = question;
         this.answers = answers;
