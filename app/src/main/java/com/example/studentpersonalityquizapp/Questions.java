@@ -6,8 +6,10 @@ import java.util.Set;
 public class Questions {
     private String question;
 
-    private Map<Integer, Map<String,Integer>> answerMap;
+    //private Map<Integer, String>
+    private Map<Map<Integer, String>, Map<String, Integer>> answerMap;
 
     public Questions(){
+
     }
 }

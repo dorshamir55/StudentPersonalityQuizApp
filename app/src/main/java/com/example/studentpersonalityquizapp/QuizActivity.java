@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
 public class QuizActivity extends AppCompatActivity {
     private int score;
     private TextView welcomeTextView;
@@ -20,5 +22,6 @@ public class QuizActivity extends AppCompatActivity {
         String studentName = extras.getString("studentName");
         welcomeTextView = (TextView)(findViewById(R.id.textView_welcome));
         welcomeTextView.append(", " +studentName);
+
     }
 }
