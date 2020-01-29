@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="start_btn">התחל</string>
+    <string name="student_name">הכנס את שמך</string>
+    <string name="titleMain">איזה סוג סטודנט אתה?</string>
+    <string name="titleQuiz">שלום</string>
+    <string name="nextQuestion">הבא</string>
+    <string name="titleResult">תוצאות הבוחן</string>
+    <string name="finalScore">האישיות שלך:</string>
+</resources>
