@@ -10,6 +10,7 @@ public class Questions {
     private String answer4;
     private int score;
     private Map<String,Integer> answerMap;
+    //K
 
     public Questions(String question, String answer1, String answer2, String answer3, String answer4, int score, Map<String, Integer> answerMap) {
         this.question = question;
