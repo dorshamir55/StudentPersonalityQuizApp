@@ -3,7 +3,7 @@ package com.example.studentpersonalityquizapp;
 import java.io.Serializable;
 import java.util.Map;
 
-public class QuestionDB implements Serializable {
+public class QuestionsDB implements Serializable {
     /**
      *
      */
@@ -11,7 +11,7 @@ public class QuestionDB implements Serializable {
     private Map<Integer,String> question;
     private Map<Integer,Map<String,Integer>> answers;
 
-    public Question(Map<Integer, String> question, Map<Integer, Map<String, Integer>> answers) {
+    public QuestionsDB(Map<Integer, String> question, Map<Integer, Map<String, Integer>> answers) {
         this.question = question;
         this.answers = answers;
     }
@@ -31,4 +31,4 @@ public class QuestionDB implements Serializable {
     public void setAnswers(Map<Integer, Map<String, Integer>> answers) {
         this.answers = answers;
     }
-
+}
