@@ -36,7 +36,7 @@ public class ResultActivity extends AppCompatActivity {
         {
             textViewResult.setText(getString(R.string.result3));
         }
-        else if(score<70)
+        else if(score<=80)
         {
             textViewResult.setText(getString(R.string.result2));
         }
@@ -65,10 +65,10 @@ public class ResultActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(Integer... integers) {
-            for (int i = 0; i < integers[0]; i++) {
-                publishProgress((i * 100) / integers[0]);
+            for (int i = 0; i <= integers[0]; i++) {
+                publishProgress(i);
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(100);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -79,7 +79,7 @@ public class ResultActivity extends AppCompatActivity {
 
         @Override
         protected void onProgressUpdate(Integer... values) {
-            super.onProgressUpdate(values);
+            //super.onProgressUpdate(values);
 
             ResultActivity activity = activityWeakReference.get();
             if (activity == null || activity.isFinishing()) {

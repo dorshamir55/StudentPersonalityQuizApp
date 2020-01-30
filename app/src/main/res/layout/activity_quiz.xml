@@ -2,69 +2,75 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#7400B8D4"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/textView_welcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/titleQuiz"
         android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/titleQuiz"
         android:textColor="#000000"
-        android:textSize="30sp"
-        android:padding="10dp"/>
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/textView_question"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:padding="5dp"
+        android:text="quest"
         android:textColor="#000000"
-        android:textSize="20sp"
-        android:padding="10dp"
-        android:layout_margin="50dp"
-        android:text="quest"/>
+        android:textSize="18sp" />
 
     <RadioGroup
         android:id="@+id/radioGroup_answers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp">
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp">
 
         <RadioButton
             android:id="@+id/radio_button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1"
-            android:padding="20dp"/>
+            android:padding="20dp"
+            android:text="1" />
+
         <RadioButton
             android:id="@+id/radio_button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2"
-            android:padding="20dp"/>
+            android:padding="20dp"
+            android:text="2" />
+
         <RadioButton
             android:id="@+id/radio_button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="3"
-            android:padding="20dp"/>
+            android:padding="20dp"
+            android:text="3" />
+
         <RadioButton
             android:id="@+id/radio_button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="4"
-            android:padding="20dp"/>
+            android:padding="20dp"
+            android:text="4" />
     </RadioGroup>
 
     <Button
         android:id="@+id/btn_next"
+        style="@android:style/Widget.Holo.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:layout_gravity="center"
-        android:text="@string/nextQuestion"
+        android:layout_marginTop="35dp"
+        android:background="#A11A237E"
         android:paddingHorizontal="80dp"
-        />
+        android:text="@string/nextQuestion" />
 
 </LinearLayout>

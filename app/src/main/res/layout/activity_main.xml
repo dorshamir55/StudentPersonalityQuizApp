@@ -2,40 +2,43 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#7400B8D4"
     android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:gravity="center"
+        android:padding="30dp"
         android:text="@string/titleMain"
         android:textColor="#000000"
-        android:textSize="25sp"
-        android:padding="30dp"
-        android:layout_marginTop="50dp"/>
+        android:textSize="25sp" />
 
     <EditText
         android:id="@+id/editText_studentName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/student_name"
+        android:layout_gravity="center"
         android:layout_marginTop="250dp"
-        android:layout_gravity="center"/>
+        android:hint="@string/student_name" />
 
     <Button
         android:id="@+id/btn_start"
+        style="@android:style/Widget.Holo.Light.Button.Inset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:background="#95396B26"
         android:clickable="false"
         android:text="@string/start_btn" />
 
     <Switch
         android:id="@+id/switchLang"
-        android:hint="@string/pick_lang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:hint="@string/pick_lang"
         android:text="@string/switch_lang" />
 
 </LinearLayout>

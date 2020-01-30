@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#7400B8D4"
     android:orientation="vertical">
 
     <TextView
@@ -19,26 +20,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/textView_titleresult"
-        android:text="@string/finalScore"
-        android:gravity="center"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        android:layout_marginTop="30dp"
         android:layout_marginLeft="20dp"
-        android:padding="10dp"/>
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/finalScore"
+        android:textColor="#000000"
+        android:textSize="20sp" />
 
     <ProgressBar
         android:id="@+id/progressBar_result"
         android:layout_width="match_parent"
-        android:layout_below="@id/textView_score"
         android:layout_height="100dp"
-        android:layout_marginTop="100dp"/>
+        android:layout_below="@id/textView_score"
+        android:layout_marginTop="100dp" />
+
 
     <TextView
         android:id="@+id/textView_result"
         android:layout_width="match_parent"
-        android:layout_below="@id/textView_score"
         android:layout_height="250dp"
+        android:layout_below="@id/textView_score"
         android:layout_margin="50dp"
         android:gravity="center"
         android:padding="10dp"
