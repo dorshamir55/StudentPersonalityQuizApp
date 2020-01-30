@@ -7,4 +7,6 @@
     <string name="nextQuestion">הבא</string>
     <string name="titleResult">תוצאות הבוחן</string>
     <string name="finalScore">האישיות שלך:</string>
+    <string name="pick_lang">בחר את השפה שלך</string>
+    <string name="switch_lang">עברית</string>
 </resources>

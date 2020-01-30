@@ -30,4 +30,12 @@
         android:clickable="false"
         android:text="@string/start_btn" />
 
+    <Switch
+        android:id="@+id/switchLang"
+        android:hint="@string/pick_lang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/switch_lang" />
+
 </LinearLayout>

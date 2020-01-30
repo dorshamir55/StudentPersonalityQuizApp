@@ -7,4 +7,6 @@
     <string name="nextQuestion">Next</string>
     <string name="titleResult">Quiz result</string>
     <string name="finalScore">Your personality is:</string>
+    <string name="pick_lang">Pick your Language</string>
+    <string name="switch_lang">English</string>
 </resources>
