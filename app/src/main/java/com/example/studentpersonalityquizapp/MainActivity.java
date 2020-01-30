@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         startButton = (Button) (findViewById(R.id.btn_start));
         nameEditText = (EditText) (findViewById(R.id.editText_studentName));
-        langSwitch = (Switch) (findViewById(R.id.switchLang));
+//        langSwitch = (Switch) (findViewById(R.id.switchLang));
 //        langSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 //            @Override
 //            public void onCheckedChanged(CompoundButton buttonView, boolean change) {
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (nameEditText.getText().toString().equals("")) {
-                    nameEditText.setError("The name can't be empty!");
+                    nameEditText.setError(getString(R.string.check_editText));
                 } else {
                     startQuiz();
                 }

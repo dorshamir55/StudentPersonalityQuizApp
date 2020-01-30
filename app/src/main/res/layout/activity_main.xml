@@ -21,7 +21,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="250dp"
-        android:hint="@string/student_name" />
+        android:hint="@string/student_name"
+        android:inputType="text"/> <!--//one line only-->
 
     <Button
         android:id="@+id/btn_start"
@@ -33,12 +34,12 @@
         android:clickable="false"
         android:text="@string/start_btn" />
 
-    <Switch
-        android:id="@+id/switchLang"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:hint="@string/pick_lang"
-        android:text="@string/switch_lang" />
+<!--    <Switch-->
+<!--        android:id="@+id/switchLang"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:hint="@string/pick_lang"-->
+<!--        android:text="@string/switch_lang" />-->
 
 </LinearLayout>

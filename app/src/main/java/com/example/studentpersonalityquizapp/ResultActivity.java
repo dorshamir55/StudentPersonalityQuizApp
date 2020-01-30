@@ -66,7 +66,7 @@ public class ResultActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(Integer... integers) {
             for (int i = 0; i <= integers[0]; i++) {
-                publishProgress(i);
+                publishProgress(i*100/integers[0]);
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e) {
