@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#7400B8D4"
+    android:background="@drawable/background"
+    android:backgroundTint="#7400B8D4"
     android:orientation="vertical">
 
     <TextView
@@ -22,19 +23,19 @@
         android:layout_gravity="center"
         android:layout_marginTop="250dp"
         android:hint="@string/student_name"
-        android:inputType="text"/> <!--//one line only-->
+        android:inputType="text"/><!--//one line only-->
 
     <Button
         android:id="@+id/btn_start"
-        style="@android:style/Widget.Holo.Light.Button.Inset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="#95396B26"
-        android:clickable="false"
-        android:text="@string/start_btn" />
+        android:background="@drawable/buttonshape"
+        android:text="@string/start_btn"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
 
-<!--    <Switch-->
+    <!--    <Switch-->
 <!--        android:id="@+id/switchLang"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->

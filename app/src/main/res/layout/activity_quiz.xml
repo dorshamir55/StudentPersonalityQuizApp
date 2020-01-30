@@ -64,13 +64,15 @@
 
     <Button
         android:id="@+id/btn_next"
-        style="@android:style/Widget.Holo.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="35dp"
-        android:background="#A11A237E"
+        android:background="@drawable/buttonshape2"
         android:paddingHorizontal="80dp"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:clickable="true"
         android:text="@string/nextQuestion" />
 
 </LinearLayout>
