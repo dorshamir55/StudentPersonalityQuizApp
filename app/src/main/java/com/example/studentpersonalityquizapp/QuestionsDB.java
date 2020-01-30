@@ -8,10 +8,10 @@ public class QuestionsDB implements Serializable {
      *
      */
     private static final long serialVersionUID = 1L;
-    private Map<Integer, String> question;
-    private Map<Integer, Map<String, Integer>> answers;
+    private Map<Integer,String> question;
+    private Map<Integer,Map<Integer,String>> answers;
 
-    public QuestionsDB(Map<Integer, String> question, Map<Integer, Map<String, Integer>> answers) {
+    public QuestionsDB(Map<Integer, String> question, Map<Integer, Map<Integer, String>> answers) {
         this.question = question;
         this.answers = answers;
     }
@@ -24,11 +24,12 @@ public class QuestionsDB implements Serializable {
         this.question = question;
     }
 
-    public Map<Integer, Map<String, Integer>> getAnswers() {
+    public Map<Integer, Map<Integer, String>> getAnswers() {
         return answers;
     }
 
-    public void setAnswers(Map<Integer, Map<String, Integer>> answers) {
+    public void setAnswers(Map<Integer, Map<Integer, String>> answers) {
         this.answers = answers;
     }
+
 }

@@ -29,19 +29,20 @@ public class MainActivity extends AppCompatActivity {
         startButton = (Button) (findViewById(R.id.btn_start));
         nameEditText = (EditText) (findViewById(R.id.editText_studentName));
         langSwitch = (Switch) (findViewById(R.id.switchLang));
-        langSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean change) {
-                if (langSwitch.isChecked()) {
-                    updateResources(getBaseContext(), "iw");
-                    System.out.println("The language is: "+Locale.getDefault().getLanguage());
-                } else {
-                    updateResources(getBaseContext(), "en");
-                }
-
-
-            }
-        });
+//        langSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean change) {
+//                if (langSwitch.isChecked()) {
+//                    if (Locale.getDefault().getLanguage().equals(new Locale("en").getLanguage())) {
+//                        updateResources(MainActivity.this, "iw");
+//
+//                    } else {
+//                        System.out.println("the lanauge is"+""+Locale.getDefault().getDisplayLanguage() );
+//                        updateResources(MainActivity.this, "en");
+//                    }
+//                }
+//            }
+//        });
 
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,22 +66,24 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void updateResources(Context context, String language) {
-        Locale locale = new Locale(language);
-        Locale.setDefault(locale);
-
-        Resources resources = context.getResources();
-
-        Configuration configuration = resources.getConfiguration();
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            configuration.setLocale(locale);
-        } else {
-            configuration.locale = locale;
-        }
-
-        resources.updateConfiguration(configuration, resources.getDisplayMetrics());
-        this.recreate();
-    }
+//    private void updateResources(Context context, String language) {
+//        Locale locale = new Locale(language);
+//        Locale.setDefault(locale);
+//        Resources resources = context.getResources();
+//
+//        Configuration configuration = resources.getConfiguration();
+//
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+//            configuration.setLocale(locale);
+//        } else {
+//            configuration.locale = locale;
+//        }
+//
+//        resources.updateConfiguration(configuration, resources.getDisplayMetrics());
+//        // this.recreate();
+//        Intent intent = getIntent();
+//        finish();
+//        startActivity(intent);
+//    }
 
 }
