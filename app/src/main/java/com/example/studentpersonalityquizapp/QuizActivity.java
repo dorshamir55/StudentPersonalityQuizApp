@@ -18,6 +18,7 @@ import com.google.gson.JsonSyntaxException;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
@@ -35,7 +36,7 @@ public class QuizActivity extends AppCompatActivity {
     private RadioButton radioButton4;
     private Button buttonNext;
     private Map<Integer, String> questionsMap;
-    private Map<Integer, Map<Integer, String>> answersMap;
+    private Map<Integer, ArrayList<String>> answersMap;
     private int questionCounter = 1; // count number of question to move next activity after 10 questions
 
 
@@ -107,20 +108,20 @@ public class QuizActivity extends AppCompatActivity {
 
         if (questionCounter < 10) {
             textViewQuestion.setText(questionsMap.get(questionCounter));
-            radioButton1.setText(answersMap.get(questionCounter).get(1));
-            radioButton2.setText(answersMap.get(questionCounter).get(4));
-            radioButton3.setText(answersMap.get(questionCounter).get(7));
-            radioButton4.setText(answersMap.get(questionCounter).get(10));
+            radioButton1.setText(answersMap.get(questionCounter).get(0));
+            radioButton2.setText(answersMap.get(questionCounter).get(1));
+            radioButton3.setText(answersMap.get(questionCounter).get(2));
+            radioButton4.setText(answersMap.get(questionCounter).get(3));
 
 
 
         } else if (questionCounter == 10) // last question
         {
             textViewQuestion.setText(questionsMap.get(questionCounter));
-            radioButton1.setText(answersMap.get(questionCounter).get(1));
-            radioButton2.setText(answersMap.get(questionCounter).get(4));
-            radioButton3.setText(answersMap.get(questionCounter).get(7));
-            radioButton4.setText(answersMap.get(questionCounter).get(10));
+            radioButton1.setText(answersMap.get(questionCounter).get(0));
+            radioButton2.setText(answersMap.get(questionCounter).get(1));
+            radioButton3.setText(answersMap.get(questionCounter).get(2));
+            radioButton4.setText(answersMap.get(questionCounter).get(3));
             buttonNext.setText(getString(R.string.finish_btn));
 
         } else {
