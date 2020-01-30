@@ -17,6 +17,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Locale;
 
 public class QuizActivity extends AppCompatActivity {
     private int score;
@@ -40,13 +41,13 @@ public class QuizActivity extends AppCompatActivity {
 
     public String checkLang()
     {
-        if (true)
-        {
-            return "DBhebrew.json";
-        }
-        else
+        if (Locale.getDefault().getLanguage().equals(new Locale("en").getLanguage())) //if the code lang will change
         {
             return "DBenglish.json";
+        }
+        else//lang = iw - hebrew
+        {
+            return "DBhebrew.json";
         }
     }
     public String readJSONFromAsset(String Path) {
