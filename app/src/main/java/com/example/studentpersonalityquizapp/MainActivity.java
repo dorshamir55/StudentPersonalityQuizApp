@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean change) {
                 if (langSwitch.isChecked()) {
                     updateResources(getBaseContext(), "iw");
+                    System.out.println("The language is: "+Locale.getDefault().getLanguage());
                 } else {
                     updateResources(getBaseContext(), "en");
                 }
