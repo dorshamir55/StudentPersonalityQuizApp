@@ -82,6 +82,7 @@ public class ResultActivity extends AppCompatActivity {
             if (activity == null || activity.isFinishing()) {
                 return;
             }
+            activity.progressBar.setVisibility(View.VISIBLE);
         }
 
         @Override

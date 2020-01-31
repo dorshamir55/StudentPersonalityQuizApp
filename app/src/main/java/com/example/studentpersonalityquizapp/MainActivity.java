@@ -6,35 +6,29 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.Toast;
 
-import java.util.Locale;
+//import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private Button startButton;
     private EditText nameEditText;
-    private Switch langSwitch;
+    //private Switch langSwitch;
     private ImageView imageCall;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        startButton = (Button) (findViewById(R.id.btn_start));
-        nameEditText = (EditText) (findViewById(R.id.editText_studentName));
+        startButton =  (findViewById(R.id.btn_start));
+        nameEditText =  (findViewById(R.id.editText_studentName));
         imageCall = findViewById(R.id.image_call);
         imageCall.setOnClickListener(new View.OnClickListener() {
             @Override
