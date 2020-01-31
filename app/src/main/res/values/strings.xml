@@ -2,7 +2,7 @@
     <string name="start_btn">Start</string>
     <string name="student_name">Insert your name</string>
     <string name="app_name" translatable="false">StudentPersonalityQuizApp</string>
-    <string name="titleMain">What kind of student are you?</string>
+    <string name="titleMain">What type of student are you?</string>
     <string name="titleQuiz">welcome</string>
     <string name="nextQuestion">Next</string>
     <string name="titleResult">Quiz result</string>
@@ -16,4 +16,6 @@
     <string name="result3">You\'re a really bad student! You\'re such a bad student With such an approach, we hope for you to successfully complete the degree</string>
     <string name="pb_Status">GL with the degree!</string>
     <string name="check_editText">The name can\'t be empty!</string>
+    <string name="share">Share Result</string>
+    <string name="titleShare">Hey watch my result from Student personality Quizz APP</string>
 </resources>

@@ -21,20 +21,17 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Map;
-import java.util.Set;
-
-import javax.xml.transform.Result;
 
 public class QuizActivity extends AppCompatActivity {
     private int score = 0;
     private TextView welcomeTextView;
-    private TextView textViewQuestion;
+    private TextView questionTextView;
     private RadioGroup radioGroupAnswers;
     private RadioButton radioButton1;
     private RadioButton radioButton2;
     private RadioButton radioButton3;
     private RadioButton radioButton4;
-    private Button buttonNext;
+    private Button nextButton;
     private Map<Integer, String> questionsMap;
     private Map<Integer, ArrayList<String>> answersMap;
     private int questionCounter = 1; // count number of question to move next activity after 10 questions
@@ -49,13 +46,13 @@ public class QuizActivity extends AppCompatActivity {
         String studentName = extras.getString("studentName");
 
         welcomeTextView = (TextView) (findViewById(R.id.textView_welcome));
-        textViewQuestion = (TextView) (findViewById(R.id.textView_question));
+        questionTextView = (TextView) (findViewById(R.id.textView_question));
         radioGroupAnswers = (RadioGroup) (findViewById(R.id.radioGroup_answers));
         radioButton1 = (RadioButton) (findViewById(R.id.radio_button1));
         radioButton2 = (RadioButton) (findViewById(R.id.radio_button2));
         radioButton3 = (RadioButton) (findViewById(R.id.radio_button3));
         radioButton4 = (RadioButton) (findViewById(R.id.radio_button4));
-        buttonNext = (Button) (findViewById(R.id.btn_next));
+        nextButton = (Button) (findViewById(R.id.btn_next));
 
         //set welcome msg to the student
         welcomeTextView.append(", " + studentName);
@@ -64,7 +61,7 @@ public class QuizActivity extends AppCompatActivity {
         questionsMap = DB.getQuestion();
         answersMap = DB.getAnswers();
         nextQuestion();
-        buttonNext.setOnClickListener(new View.OnClickListener() {
+        nextButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -107,7 +104,7 @@ public class QuizActivity extends AppCompatActivity {
         radioGroupAnswers.clearCheck();
 
         if (questionCounter < 10) {
-            textViewQuestion.setText(questionsMap.get(questionCounter));
+            questionTextView.setText(questionsMap.get(questionCounter));
             radioButton1.setText(answersMap.get(questionCounter).get(0));
             radioButton2.setText(answersMap.get(questionCounter).get(1));
             radioButton3.setText(answersMap.get(questionCounter).get(2));
@@ -117,12 +114,12 @@ public class QuizActivity extends AppCompatActivity {
 
         } else if (questionCounter == 10) // last question
         {
-            textViewQuestion.setText(questionsMap.get(questionCounter));
+            questionTextView.setText(questionsMap.get(questionCounter));
             radioButton1.setText(answersMap.get(questionCounter).get(0));
             radioButton2.setText(answersMap.get(questionCounter).get(1));
             radioButton3.setText(answersMap.get(questionCounter).get(2));
             radioButton4.setText(answersMap.get(questionCounter).get(3));
-            buttonNext.setText(getString(R.string.finish_btn));
+            nextButton.setText(getString(R.string.finish_btn));
 
         } else {
             finishQuiz();
