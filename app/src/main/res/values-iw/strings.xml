@@ -20,4 +20,6 @@
     <string name="titleShare">היי! סתכל מה יצא לי באפליקציה של מבחן אישיות לסטודנט</string>
     <string name="phoneContact">+972-501234455</string>
     <string name="permission">הבקשה נדחתה</string>
+    <string name="call_support">טלפון ליצירת קשר</string>
+    <string name="email_support">מייל ליצירת קשר</string>
 </resources>

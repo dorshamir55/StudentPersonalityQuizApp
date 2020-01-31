@@ -23,19 +23,15 @@ public class MainActivity extends AppCompatActivity {
     private EditText nameEditText;
     //private Switch langSwitch;
     private ImageView imageCall;
+    private ImageView imageEmail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         startButton =  (findViewById(R.id.btn_start));
         nameEditText =  (findViewById(R.id.editText_studentName));
+        imageEmail = findViewById(R.id.image_email);
         imageCall = findViewById(R.id.image_call);
-        imageCall.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                makePhoneCall();
-            }
-        });
 
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +41,20 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     startQuiz();
                 }
+            }
+        });
+
+        imageCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                makePhoneCall();
+            }
+        });
+
+        imageEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendMail();
             }
         });
 
@@ -67,6 +77,17 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void sendMail() {
+        String mail = "contact@gmail.com";
+        String subject= "StudentPersonalityQuizApp - support mail";
+        String mailTo = "mailto:" + mail +
+                "?&subject=" + Uri.encode(subject) +
+                "&body=" ;
+        Intent emailIntent = new Intent(Intent.ACTION_VIEW);
+        emailIntent.setData(Uri.parse(mailTo));
+        startActivity(emailIntent);
+
+    }
 
     private void makePhoneCall(){
         String number = getString(R.string.phoneContact);

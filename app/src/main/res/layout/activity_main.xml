@@ -35,16 +35,26 @@
         android:text="@string/start_btn"
         android:textColor="#FFFFFF"
         android:textSize="20sp" />
-
+    <TableRow
+        android:id="@+id/tableRowForButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
     <ImageView
         android:id="@+id/image_call"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_gravity="start"
-        android:layout_marginLeft="40sp"
-        android:layout_marginRight="40sp"
+        android:layout_marginStart="130dp"
+        android:layout_marginEnd="50dp"
+        android:contentDescription="@string/call_support"
         android:src="@drawable/ic_contact_phone" />
 
+        <ImageView
+            android:id="@+id/image_email"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="@string/email_support"
+            android:src="@drawable/ic_email" />
+    </TableRow>
     <!--    <Switch-->
 <!--        android:id="@+id/switchLang"-->
 <!--        android:layout_width="wrap_content"-->
