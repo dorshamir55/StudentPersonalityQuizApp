@@ -36,6 +36,14 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp" />
 
+    <ImageView
+        android:id="@+id/image_call"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="start"
+        android:layout_marginLeft="40sp"
+        android:layout_marginRight="40sp"
+        android:src="@drawable/ic_contact_phone" />
 
     <!--    <Switch-->
 <!--        android:id="@+id/switchLang"-->

@@ -1,17 +1,24 @@
 package com.example.studentpersonalityquizapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -21,13 +28,32 @@ public class MainActivity extends AppCompatActivity {
     private Button startButton;
     private EditText nameEditText;
     private Switch langSwitch;
-
+    private ImageView imageCall;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         startButton = (Button) (findViewById(R.id.btn_start));
         nameEditText = (EditText) (findViewById(R.id.editText_studentName));
+        imageCall = findViewById(R.id.image_call);
+        imageCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                makePhoneCall();
+            }
+        });
+
+        startButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (nameEditText.getText().toString().trim().length()==0) { //trim=remove spaces to avoid blank name
+                    nameEditText.setError(getString(R.string.check_editText));
+                } else {
+                    startQuiz();
+                }
+            }
+        });
+
 //        langSwitch = (Switch) (findViewById(R.id.switchLang));
 //        langSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 //            @Override
@@ -44,18 +70,35 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
-        startButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (nameEditText.getText().toString().equals("")) {
-                    nameEditText.setError(getString(R.string.check_editText));
-                } else {
-                    startQuiz();
-                }
+
+    }
+
+
+    private void makePhoneCall(){
+        String number = getString(R.string.phoneContact);
+        if(ContextCompat.checkSelfPermission(MainActivity.this,
+                Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) //check premission
+        {
+            ActivityCompat.requestPermissions(MainActivity.this,
+                    new String[]{Manifest.permission.CALL_PHONE}, 1);
+        }
+        else{
+            String dial = "tel:" + number;
+            startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse(dial)));
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if(requestCode == 1){
+            if(grantResults.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED){
+                makePhoneCall();
+                //after we ask for permission we check if user allowed this
             }
-        });
-
-
+            else{
+                Toast.makeText(this,getString(R.string.permission),Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     private void startQuiz() {

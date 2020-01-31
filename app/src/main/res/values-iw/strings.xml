@@ -18,4 +18,6 @@
     <string name="check_editText">אנא הכנס את שמך!</string>
     <string name="share">שיתוף התוצאה</string>
     <string name="titleShare">היי! סתכל מה יצא לי באפליקציה של מבחן אישיות לסטודנט</string>
+    <string name="phoneContact">+972-501234455</string>
+    <string name="permission">הבקשה נדחתה</string>
 </resources>
