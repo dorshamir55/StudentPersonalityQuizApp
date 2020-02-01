@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
                 "&body=" ;
         Intent emailIntent = new Intent(Intent.ACTION_VIEW);
         emailIntent.setData(Uri.parse(mailTo));
+
         startActivity(emailIntent);
 
     }

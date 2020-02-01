@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/textView_titleresult"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:gravity="center"
         android:padding="10dp"
         android:text="@string/finalScore"
@@ -38,17 +38,22 @@
         android:progress="10"
         android:progressDrawable="@drawable/circle"/>
 
+    <ImageView
+        android:id="@+id/imageView_result"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/textView_score"
+        android:layout_marginTop="20dp"/>
 
     <TextView
         android:id="@+id/textView_result"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:layout_below="@id/textView_score"
-        android:layout_margin="50dp"
+        android:layout_below="@id/imageView_result"
         android:gravity="center"
         android:padding="10dp"
         android:textColor="#000000"
-        android:textSize="25sp" />
+        android:textSize="25sp"/>
 
 <!--    <Button-->
 <!--        android:id="@+id/button_share"-->

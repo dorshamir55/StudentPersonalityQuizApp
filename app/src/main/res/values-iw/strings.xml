@@ -22,4 +22,5 @@
     <string name="permission">הבקשה נדחתה</string>
     <string name="call_support">טלפון ליצירת קשר</string>
     <string name="email_support">מייל ליצירת קשר</string>
+    <string name="showScore_btn">הראה ניקוד נוכחי</string>
 </resources>

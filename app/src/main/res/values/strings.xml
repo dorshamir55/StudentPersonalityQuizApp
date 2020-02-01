@@ -22,4 +22,5 @@
     <string name="permission">Permission DENIED</string>
     <string name="call_support">call support</string>
     <string name="email_support">email support</string>
+    <string name="showScore_btn">"show current score "</string>
 </resources>

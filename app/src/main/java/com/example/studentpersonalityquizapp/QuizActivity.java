@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -26,6 +27,7 @@ public class QuizActivity extends AppCompatActivity {
     private int score = 0;
     private TextView welcomeTextView;
     private TextView questionTextView;
+    private TextView questionNumberTextView;
     private RadioGroup radioGroupAnswers;
     private RadioButton radioButton1;
     private RadioButton radioButton2;
@@ -47,6 +49,7 @@ public class QuizActivity extends AppCompatActivity {
 
         welcomeTextView = (TextView) (findViewById(R.id.textView_welcome));
         questionTextView = (TextView) (findViewById(R.id.textView_question));
+        questionNumberTextView = (TextView) (findViewById(R.id.textView_questionNumber));
         radioGroupAnswers = (RadioGroup) (findViewById(R.id.radioGroup_answers));
         radioButton1 = (RadioButton) (findViewById(R.id.radio_button1));
         radioButton2 = (RadioButton) (findViewById(R.id.radio_button2));
@@ -74,7 +77,6 @@ public class QuizActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     private void checkAnswer() {
@@ -96,8 +98,6 @@ public class QuizActivity extends AppCompatActivity {
             default:
                 break;
         }
-
-
     }
 
     private void nextQuestion() {
@@ -105,16 +105,16 @@ public class QuizActivity extends AppCompatActivity {
 
         if (questionCounter < 10) {
             questionTextView.setText(questionsMap.get(questionCounter));
+            questionNumberTextView.setText(String.valueOf(questionCounter));
             radioButton1.setText(answersMap.get(questionCounter).get(0));
             radioButton2.setText(answersMap.get(questionCounter).get(1));
             radioButton3.setText(answersMap.get(questionCounter).get(2));
             radioButton4.setText(answersMap.get(questionCounter).get(3));
 
-
-
         } else if (questionCounter == 10) // last question
         {
             questionTextView.setText(questionsMap.get(questionCounter));
+            questionNumberTextView.setText(String.valueOf(questionCounter));
             radioButton1.setText(answersMap.get(questionCounter).get(0));
             radioButton2.setText(answersMap.get(questionCounter).get(1));
             radioButton3.setText(answersMap.get(questionCounter).get(2));
@@ -125,7 +125,6 @@ public class QuizActivity extends AppCompatActivity {
             finishQuiz();
         }
         questionCounter++;
-
     }
 
     private void finishQuiz() {
@@ -135,7 +134,6 @@ public class QuizActivity extends AppCompatActivity {
         intent.putExtras(extras);
         startActivity(intent);
     }
-
 
     public String checkLang() {
         if (Locale.getDefault().getLanguage().equals(new Locale("en").getLanguage())) //if the code lang will change
@@ -163,18 +161,15 @@ public class QuizActivity extends AppCompatActivity {
         return json;
     }
 
-
     private QuestionsDB readFromFile(String Path) {
         try {
             GsonBuilder g = new GsonBuilder().disableHtmlEscaping();
             Gson gg = g.create();
             String json = readJSONFromAsset(Path);
             return (gg.fromJson(json, QuestionsDB.class));
-
         } catch (JsonSyntaxException | JsonIOException e) {
             e.printStackTrace();
         }
         return null;
-
     }
 }

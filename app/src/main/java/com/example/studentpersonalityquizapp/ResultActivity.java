@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import android.widget.TextView;
@@ -19,8 +20,7 @@ public class ResultActivity extends AppCompatActivity {
     private TextView resultTextView;
     private int score;
     private ProgressBar progressBar;
-
-
+    private ImageView resultImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +31,7 @@ public class ResultActivity extends AppCompatActivity {
         score = extras.getInt("score");
         resultTextView = (TextView) (findViewById(R.id.textView_result));
         progressBar = (ProgressBar) (findViewById(R.id.progressBar_result));
+        resultImageView = (ImageView) (findViewById(R.id.imageView_result));
         new LoaderAsyncTask(this).execute(10);
 
     }
@@ -59,10 +60,13 @@ public class ResultActivity extends AppCompatActivity {
     private void checkPersonality(int score) {
         if (score < 40) {
             resultTextView.setText(getString(R.string.result3));
+            resultImageView.setImageResource(R.drawable.bad_student);
         } else if (score <= 80) {
             resultTextView.setText(getString(R.string.result2));
+            resultImageView.setImageResource(R.drawable.average_student);
         } else {
             resultTextView.setText(getString(R.string.result1));
+            resultImageView.setImageResource(R.drawable.successful_student);
         }
 
     }
