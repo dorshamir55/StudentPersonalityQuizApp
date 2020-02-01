@@ -105,7 +105,7 @@ public class QuizActivity extends AppCompatActivity {
 
         if (questionCounter < 10) {
             questionTextView.setText(questionsMap.get(questionCounter));
-            questionNumberTextView.setText(String.valueOf(questionCounter));
+            questionNumberTextView.setText(String.valueOf(questionCounter)+".");
             radioButton1.setText(answersMap.get(questionCounter).get(0));
             radioButton2.setText(answersMap.get(questionCounter).get(1));
             radioButton3.setText(answersMap.get(questionCounter).get(2));
@@ -114,7 +114,7 @@ public class QuizActivity extends AppCompatActivity {
         } else if (questionCounter == 10) // last question
         {
             questionTextView.setText(questionsMap.get(questionCounter));
-            questionNumberTextView.setText(String.valueOf(questionCounter));
+            questionNumberTextView.setText(String.valueOf(questionCounter)+".");
             radioButton1.setText(answersMap.get(questionCounter).get(0));
             radioButton2.setText(answersMap.get(questionCounter).get(1));
             radioButton3.setText(answersMap.get(questionCounter).get(2));
