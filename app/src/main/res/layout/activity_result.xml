@@ -43,6 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_below="@id/textView_score"
+        android:contentDescription="@string/personality_imagematch"
         android:layout_marginTop="20dp"/>
 
     <TextView
