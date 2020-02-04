@@ -34,6 +34,7 @@ public class ResultActivity extends AppCompatActivity {
         resultImageView = (ImageView) (findViewById(R.id.imageView_result));
         new LoaderAsyncTask(this).execute(10);
 
+
     }
 
     @Override
@@ -55,7 +56,6 @@ public class ResultActivity extends AppCompatActivity {
         return true;
 
     }
-
 
     private void checkPersonality(int score) {
         if (score < 40) {
