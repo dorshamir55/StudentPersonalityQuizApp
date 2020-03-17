@@ -10,7 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,11 +47,11 @@ public class ResultActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId()==R.id.share) {
-                Intent sharingIntent = new Intent(Intent.ACTION_SEND);
-                sharingIntent.setType("text/plain");
-                sharingIntent.putExtra(Intent.EXTRA_SUBJECT,getString(R.string.titleShare));
-                sharingIntent.putExtra(Intent.EXTRA_TEXT, resultTextView.getText().toString());
-                startActivity(Intent.createChooser(sharingIntent,getString(R.string.share)));
+            Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+            sharingIntent.setType("text/plain");
+            sharingIntent.putExtra(Intent.EXTRA_SUBJECT,getString(R.string.titleShare));
+            sharingIntent.putExtra(Intent.EXTRA_TEXT, resultTextView.getText().toString());
+            startActivity(Intent.createChooser(sharingIntent,getString(R.string.share)));
         }
 
         return true;
@@ -61,14 +62,31 @@ public class ResultActivity extends AppCompatActivity {
         if (score < 40) {
             resultTextView.setText(getString(R.string.result3));
             resultImageView.setImageResource(R.drawable.bad_student);
+            addStars(1);
         } else if (score <= 80) {
             resultTextView.setText(getString(R.string.result2));
             resultImageView.setImageResource(R.drawable.average_student);
+            addStars(3);
         } else {
             resultTextView.setText(getString(R.string.result1));
             resultImageView.setImageResource(R.drawable.successful_student);
+            addStars(5);
         }
 
+    }
+
+    private void addStars(int n){
+        RelativeLayout layout = (RelativeLayout)findViewById(R.id.layout_result_activity);
+        for(int i=0;i<n;i++)
+        {
+            ImageView image = new ImageView(this);
+            image.setLayoutParams(new android.view.ViewGroup.LayoutParams(80+100*i,60));
+            image.setMaxHeight(20);
+            image.setMaxWidth(20);
+            image.setImageResource(R.drawable.ic_star);
+            // Adds the view to the layout
+            layout.addView(image);
+        }
     }
 
     public static class LoaderAsyncTask extends AsyncTask<Integer, Integer, String> {
