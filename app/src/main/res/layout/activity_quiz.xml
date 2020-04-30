@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="10dp"
-        android:text="@string/titleQuiz"
+        android:text="@string/title_quiz"
         android:textColor="#000000"
         android:textSize="30sp" />
 
@@ -94,12 +94,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
-            android:background="@drawable/buttonshape2"
+            android:background="@drawable/button_shape2"
             android:paddingHorizontal="80dp"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:clickable="true"
             android:focusable="true"
-            android:text="@string/nextQuestion" />
+            android:text="@string/next_question" />
     </LinearLayout>
 </LinearLayout>

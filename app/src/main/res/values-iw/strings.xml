@@ -2,11 +2,11 @@
 <resources>
     <string name="start_btn">התחל</string>
     <string name="student_name">הכנס את שמך</string>
-    <string name="titleMain">איזה סוג סטודנט אתה?</string>
-    <string name="titleQuiz">שלום</string>
-    <string name="nextQuestion">הבא</string>
-    <string name="titleResult">תוצאות הבוחן</string>
-    <string name="finalScore">האישיות שלך:</string>
+    <string name="title_main">איזה סוג סטודנט אתה?</string>
+    <string name="title_quiz">שלום</string>
+    <string name="next_question">הבא</string>
+    <string name="title_result">תוצאות הבוחן</string>
+    <string name="final_score">האישיות שלך:</string>
     <string name="pick_lang">בחר את השפה שלך</string>
     <string name="switch_lang">עברית</string>
     <string name="finish_btn">סיום</string>

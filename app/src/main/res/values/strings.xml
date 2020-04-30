@@ -2,11 +2,11 @@
     <string name="start_btn">Start</string>
     <string name="student_name">Insert your name</string>
     <string name="app_name" translatable="false">StudentPersonalityQuizApp</string>
-    <string name="titleMain">What type of student are you?</string>
-    <string name="titleQuiz">welcome</string>
-    <string name="nextQuestion">Next</string>
-    <string name="titleResult">Quiz result</string>
-    <string name="finalScore">Your personality is:</string>
+    <string name="title_main">What type of student are you?</string>
+    <string name="title_quiz">welcome</string>
+    <string name="next_question">Next</string>
+    <string name="title_result">Quiz result</string>
+    <string name="final_score">Your personality is:</string>
     <string name="pick_lang">Pick your Language</string>
     <string name="switch_lang">English</string>
     <string name="finish_btn">Finish</string>

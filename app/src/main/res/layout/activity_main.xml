@@ -12,7 +12,7 @@
         android:layout_marginTop="50dp"
         android:gravity="center"
         android:padding="30dp"
-        android:text="@string/titleMain"
+        android:text="@string/title_main"
         android:textColor="#000000"
         android:textSize="25sp" />
 
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20sp"
-        android:background="@drawable/buttonshape"
+        android:background="@drawable/button_shape"
         android:text="@string/start_btn"
         android:textColor="#FFFFFF"
         android:textSize="20sp" />
@@ -54,12 +54,5 @@
             android:contentDescription="@string/email_support"
             android:src="@drawable/ic_email" />
     </TableRow>
-    <!--    <Switch-->
-<!--        android:id="@+id/switchLang"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="center"-->
-<!--        android:hint="@string/pick_lang"-->
-<!--        android:text="@string/switch_lang" />-->
 
 </LinearLayout>
