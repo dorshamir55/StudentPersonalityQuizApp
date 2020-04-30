@@ -3,6 +3,7 @@ package com.example.studentpersonalityquizapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,42 +11,45 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.lang.ref.WeakReference;
+import java.util.Locale;
 
 public class ResultActivity extends AppCompatActivity {
+    //declare variables
     private TextView resultTextView;
-    private int score;
     private ProgressBar progressBar;
     private ImageView resultImageView;
+    private int score;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+        // get score info from bundle
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         score = extras.getInt("score");
+        //initialize variables
         resultTextView = (TextView) (findViewById(R.id.textView_result));
         progressBar = (ProgressBar) (findViewById(R.id.progressBar_result));
         resultImageView = (ImageView) (findViewById(R.id.imageView_result));
         new LoaderAsyncTask(this).execute(10);
-
-
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        // share by click menu on top app
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        // initialize share option
         if (item.getItemId()==R.id.share) {
             Intent sharingIntent = new Intent(Intent.ACTION_SEND);
             sharingIntent.setType("text/plain");
@@ -55,10 +59,10 @@ public class ResultActivity extends AppCompatActivity {
         }
 
         return true;
-
     }
 
     private void checkPersonality(int score) {
+        // show personality results of the quiz according to score
         if (score < 40) {
             resultTextView.setText(getString(R.string.result3));
             resultImageView.setImageResource(R.drawable.bad_student);
@@ -75,11 +79,17 @@ public class ResultActivity extends AppCompatActivity {
 
     }
 
-    private void addStars(int n){
+    private void addStars(int numberOfStars){
+        // create dynamic stars according to the points
         RelativeLayout layout = (RelativeLayout)findViewById(R.id.layout_result_activity);
-        for(int i=0;i<n;i++)
+        for(int i=0; i < numberOfStars; i++)
         {
+            float width = resultTextView.getX();
+            float height = resultTextView.getY();
             ImageView image = new ImageView(this);
+            // set positions according to locale
+            image.setX(width+(200*checkLang()));
+            image.setY(height);
             image.setLayoutParams(new android.view.ViewGroup.LayoutParams(80+100*i,60));
             image.setMaxHeight(20);
             image.setMaxWidth(20);
@@ -89,11 +99,21 @@ public class ResultActivity extends AppCompatActivity {
         }
     }
 
+    public int checkLang() {
+        if (Locale.getDefault().getLanguage().equals(new Locale("en").getLanguage())) //if the code lang will change
+        {
+            return 1;
+        } else//lang = iw - hebrew
+        {
+            return -1;
+        }
+    }
+
     public static class LoaderAsyncTask extends AsyncTask<Integer, Integer, String> {
         private WeakReference<ResultActivity> activityWeakReference;
 
         LoaderAsyncTask(ResultActivity activity) {
-            activityWeakReference = new WeakReference<ResultActivity>(activity);
+            activityWeakReference = new WeakReference<>(activity);
         }
 
         @Override
@@ -123,8 +143,6 @@ public class ResultActivity extends AppCompatActivity {
 
         @Override
         protected void onProgressUpdate(Integer... values) {
-            //super.onProgressUpdate(values);
-
             ResultActivity activity = activityWeakReference.get();
             if (activity == null || activity.isFinishing()) {
                 return;

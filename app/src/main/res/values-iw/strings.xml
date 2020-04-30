@@ -24,4 +24,5 @@
     <string name="email_support">מייל ליצירת קשר</string>
     <string name="showScore_btn">הראה ניקוד נוכחי</string>
     <string name="personality_imagematch">personality image match</string>
+    <string name="exception">שגיאה, נסה לפתוח מחדש את המשחק</string>
 </resources>

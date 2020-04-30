@@ -6,14 +6,13 @@ import java.util.Map;
 
 public class QuestionsDB implements Serializable {
     /**
-     *
+     *  use map as data structure for questions and answers
      */
     private static final long serialVersionUID = 1L;
     private Map<Integer, String> question;
     private Map<Integer, ArrayList<String>> answers;
 
     public QuestionsDB(Map<Integer, String> question, Map<Integer, ArrayList<String>> answers) {
-        super();
         this.question = question;
         this.answers = answers;
     }

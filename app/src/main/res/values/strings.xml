@@ -24,4 +24,5 @@
     <string name="email_support">email support</string>
     <string name="showScore_btn">"show current score "</string>
     <string name="personality_imagematch">personality image match</string>
+    <string name="exception">Oops, something went wrong try reload the app</string>
 </resources>

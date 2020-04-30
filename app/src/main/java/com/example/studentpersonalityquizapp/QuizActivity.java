@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -19,12 +18,14 @@ import com.google.gson.JsonSyntaxException;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 
 public class QuizActivity extends AppCompatActivity {
-    private int score = 0;
+    // declare variables
     private TextView welcomeTextView;
     private TextView questionTextView;
     private TextView questionNumberTextView;
@@ -37,16 +38,15 @@ public class QuizActivity extends AppCompatActivity {
     private Map<Integer, String> questionsMap;
     private Map<Integer, ArrayList<String>> answersMap;
     private int questionCounter = 1; // count number of question to move next activity after 10 questions
+    private int score = 0;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
-        Intent intent = getIntent();
-        Bundle extras = intent.getExtras();
-        String studentName = extras.getString("studentName");
 
+        // initialize variables
         welcomeTextView = (TextView) (findViewById(R.id.textView_welcome));
         questionTextView = (TextView) (findViewById(R.id.textView_question));
         questionNumberTextView = (TextView) (findViewById(R.id.textView_questionNumber));
@@ -57,13 +57,23 @@ public class QuizActivity extends AppCompatActivity {
         radioButton4 = (RadioButton) (findViewById(R.id.radio_button4));
         nextButton = (Button) (findViewById(R.id.btn_next));
 
-        //set welcome msg to the student
+        // get student name from bundle/intent
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+        assert extras != null;
+        String studentName = extras.getString("studentName");
+
+        //set welcome msg to the student with his name from intent
         welcomeTextView.append(", " + studentName);
-        //read DB to questions according to app lang
+
+        //read DB for questions&answers according to phone lang(heb/eng)
         QuestionsDB DB = readFromFile(checkLang());
+        assert DB != null;
         questionsMap = DB.getQuestion();
         answersMap = DB.getAnswers();
+        //start the quiz
         nextQuestion();
+
         nextButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -82,6 +92,8 @@ public class QuizActivity extends AppCompatActivity {
     private void checkAnswer() {
         RadioButton selected = findViewById(radioGroupAnswers.getCheckedRadioButtonId());
         int answer = radioGroupAnswers.indexOfChild(selected) + 1;
+
+        // points per answer
         switch (answer) {
             case 1:
                 score += 1;
@@ -102,27 +114,33 @@ public class QuizActivity extends AppCompatActivity {
 
     private void nextQuestion() {
         radioGroupAnswers.clearCheck();
+        // initialize questions and answers to the objects from the maps
+        try {
+            if (questionCounter < 10) {
+                questionTextView.setText(questionsMap.get(questionCounter));
+                questionNumberTextView.setText(String.format("%s.", String.valueOf(questionCounter)));
+                radioButton1.setText(Objects.requireNonNull(answersMap.get(questionCounter)).get(0));
+                radioButton2.setText(Objects.requireNonNull(answersMap.get(questionCounter)).get(1));
+                radioButton3.setText(Objects.requireNonNull(answersMap.get(questionCounter)).get(2));
+                radioButton4.setText(Objects.requireNonNull(answersMap.get(questionCounter)).get(3));
 
-        if (questionCounter < 10) {
-            questionTextView.setText(questionsMap.get(questionCounter));
-            questionNumberTextView.setText(String.valueOf(questionCounter)+".");
-            radioButton1.setText(answersMap.get(questionCounter).get(0));
-            radioButton2.setText(answersMap.get(questionCounter).get(1));
-            radioButton3.setText(answersMap.get(questionCounter).get(2));
-            radioButton4.setText(answersMap.get(questionCounter).get(3));
+            } else if (questionCounter == 10) // last question
+            {
+                questionTextView.setText(questionsMap.get(questionCounter));
+                questionNumberTextView.setText(String.format("%s.", String.valueOf(questionCounter)));
+                radioButton1.setText(Objects.requireNonNull(answersMap.get(questionCounter)).get(0));
+                radioButton2.setText(Objects.requireNonNull(answersMap.get(questionCounter)).get(1));
+                radioButton3.setText(Objects.requireNonNull(answersMap.get(questionCounter)).get(2));
+                radioButton4.setText(Objects.requireNonNull(answersMap.get(questionCounter)).get(3));
+                nextButton.setText(getString(R.string.finish_btn));
 
-        } else if (questionCounter == 10) // last question
+            } else {
+                finishQuiz();
+            }
+        } catch (NullPointerException e)
         {
-            questionTextView.setText(questionsMap.get(questionCounter));
-            questionNumberTextView.setText(String.valueOf(questionCounter)+".");
-            radioButton1.setText(answersMap.get(questionCounter).get(0));
-            radioButton2.setText(answersMap.get(questionCounter).get(1));
-            radioButton3.setText(answersMap.get(questionCounter).get(2));
-            radioButton4.setText(answersMap.get(questionCounter).get(3));
-            nextButton.setText(getString(R.string.finish_btn));
-
-        } else {
-            finishQuiz();
+            e.printStackTrace();
+            Toast.makeText(this,getString(R.string.exception),Toast.LENGTH_SHORT).show();
         }
         questionCounter++;
     }
@@ -146,14 +164,15 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     public String readJSONFromAsset(String Path) {
-        String json = null;
+        String json;
+
         try {
             InputStream is = getAssets().open(Path);
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
             is.close();
-            json = new String(buffer, "UTF-8");
+            json = new String(buffer, StandardCharsets.UTF_8);
         } catch (IOException ex) {
             ex.printStackTrace();
             return null;
@@ -162,14 +181,17 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     private QuestionsDB readFromFile(String Path) {
+        // using gson to read the json files
         try {
             GsonBuilder g = new GsonBuilder().disableHtmlEscaping();
             Gson gg = g.create();
             String json = readJSONFromAsset(Path);
+
             return (gg.fromJson(json, QuestionsDB.class));
         } catch (JsonSyntaxException | JsonIOException e) {
             e.printStackTrace();
         }
+
         return null;
     }
 }
