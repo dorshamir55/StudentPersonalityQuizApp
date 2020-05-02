@@ -13,7 +13,7 @@
     <string name="select_Answer">אנא בחר תשובה</string>
     <string name="result1">"מצטיין דיקן! אתה סטודנט מצטיין, מגיע לכל השיעורים, אין ספק שתכבוש כל יעד שתרצה! "</string>
     <string name="result2">אתה סטודנט ממוצע! אתה כמו רב הסטודנטים, עוקב אחרי החומר ולומד בצורה מספיקה בשביל לקבל את התואר</string>
-    <string name="result3">אתה ממש סטודנט גרוע! אתה סטודנט כל כך גרוע עם גישה כזו, אנו מקווים בשבילך שתסיים את התואר בהצלחה</string>
+    <string name="result3">אתה ממש סטודנט גרוע! עם גישה כזו אנו בספק שתצליח לסיים את התואר, בהצלחה</string>
     <string name="pb_Status">בהצלחה בלימודים!</string>
     <string name="check_editText">אנא הכנס את שמך!</string>
     <string name="share">שיתוף התוצאה</string>
@@ -22,7 +22,6 @@
     <string name="permission">הבקשה נדחתה</string>
     <string name="call_support">טלפון ליצירת קשר</string>
     <string name="email_support">מייל ליצירת קשר</string>
-    <string name="showScore_btn">הראה ניקוד נוכחי</string>
     <string name="personality_imagematch">personality image match</string>
     <string name="exception">שגיאה, נסה לפתוח מחדש את המשחק</string>
 </resources>
