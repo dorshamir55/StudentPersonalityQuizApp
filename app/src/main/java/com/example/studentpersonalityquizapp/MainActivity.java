@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (nameEditText.getText().toString().trim().length()==0) { //trim=remove spaces to avoid blank name
+                if (nameEditText.getText().toString().trim().length() == 0) { //trim=remove spaces to avoid blank name
                     nameEditText.setError(getString(R.string.check_editText));
                 } else {
                     startQuiz();
@@ -71,14 +71,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void makePhoneCall(){
         String number = getString(R.string.phoneContact);
+        //check permission
         if(ContextCompat.checkSelfPermission(MainActivity.this,
-                Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) //check premission
+                Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)
         {
             ActivityCompat.requestPermissions(MainActivity.this,
                     new String[]{Manifest.permission.CALL_PHONE}, 1);
         }
         else{
-            String dial = "tel:" + number;
+            String dial = String.format("tel:%s", number);
             startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse(dial)));
         }
     }
@@ -86,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if(requestCode == 1){
-            if(grantResults.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED){
+            if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
                 makePhoneCall();
                 //after we ask for permission we check if user allowed this
             }

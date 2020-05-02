@@ -177,6 +177,7 @@ public class QuizActivity extends AppCompatActivity {
             ex.printStackTrace();
             return null;
         }
+
         return json;
     }
 
@@ -184,10 +185,10 @@ public class QuizActivity extends AppCompatActivity {
         // using gson to read the json files
         try {
             GsonBuilder g = new GsonBuilder().disableHtmlEscaping();
-            Gson gg = g.create();
+            Gson gson = g.create();
             String json = readJSONFromAsset(Path);
 
-            return (gg.fromJson(json, QuestionsDB.class));
+            return (gson.fromJson(json, QuestionsDB.class));
         } catch (JsonSyntaxException | JsonIOException e) {
             e.printStackTrace();
         }
