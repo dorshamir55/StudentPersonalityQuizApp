@@ -153,7 +153,7 @@ public class QuizActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public String checkLang() {
+    private String checkLang() {
         if (Locale.getDefault().getLanguage().equals(new Locale("en").getLanguage())) //if the code lang will change
         {
             return "DBenglish.json";
@@ -163,7 +163,7 @@ public class QuizActivity extends AppCompatActivity {
         }
     }
 
-    public String readJsonFromAsset(String Path) {
+    private String readJsonFromAsset(String Path) {
         String json;
 
         try {

@@ -98,7 +98,7 @@ public class ResultActivity extends AppCompatActivity {
         }
     }
 
-    public int checkLang() {
+    private int checkLang() {
         if (Locale.getDefault().getLanguage().equals(new Locale("en").getLanguage())) //if the code lang will change
         {
             return 1;
@@ -108,7 +108,7 @@ public class ResultActivity extends AppCompatActivity {
         }
     }
 
-    public static class LoaderAsyncTask extends AsyncTask<Integer, Integer, String> {
+    private static class LoaderAsyncTask extends AsyncTask<Integer, Integer, String> {
         private WeakReference<ResultActivity> activityWeakReference;
 
         LoaderAsyncTask(ResultActivity activity) {
