@@ -163,7 +163,7 @@ public class QuizActivity extends AppCompatActivity {
         }
     }
 
-    public String readJSONFromAsset(String Path) {
+    public String readJsonFromAsset(String Path) {
         String json;
 
         try {
@@ -186,7 +186,7 @@ public class QuizActivity extends AppCompatActivity {
         try {
             GsonBuilder g = new GsonBuilder().disableHtmlEscaping();
             Gson gson = g.create();
-            String json = readJSONFromAsset(Path);
+            String json = readJsonFromAsset(Path);
 
             return (gson.fromJson(json, QuestionsDB.class));
         } catch (JsonSyntaxException | JsonIOException e) {
