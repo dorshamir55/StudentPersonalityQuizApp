@@ -1,7 +1,7 @@
 <resources>
     <string name="start_btn">Start</string>
     <string name="student_name">Insert your name</string>
-    <string name="app_name" translatable="false">StudentPersonalityQuizApp</string>
+    <string name="app_name">Student Personality Quiz App</string>
     <string name="title_main">What type of student are you?</string>
     <string name="title_quiz">welcome</string>
     <string name="next_question">Next</string>
@@ -24,4 +24,9 @@
     <string name="email_support">email support</string>
     <string name="personality_imagematch">personality image match</string>
     <string name="exception">Oops, something went wrong try reload the app</string>
+    <string name="text_example_question_quiz" translatable="false">quest\nquest</string>
+    <string name="answer_1">1</string>
+    <string name="answer_2">2</string>
+    <string name="answer_3">3</string>
+    <string name="answer_4">4</string>
 </resources>

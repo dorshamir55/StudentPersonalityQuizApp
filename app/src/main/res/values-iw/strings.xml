@@ -24,4 +24,9 @@
     <string name="email_support">מייל ליצירת קשר</string>
     <string name="personality_imagematch">personality image match</string>
     <string name="exception">שגיאה, נסה לפתוח מחדש את המשחק</string>
+    <string name="answer_1">1</string>
+    <string name="answer_2">2</string>
+    <string name="answer_3">3</string>
+    <string name="answer_4">4</string>
+    <string name="app_name">אפליקציית מבחן אישיות לסטודנט</string>
 </resources>

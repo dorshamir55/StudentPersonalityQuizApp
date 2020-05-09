@@ -23,6 +23,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="260dp"
         android:hint="@string/student_name"
+        android:autofillHints="@string/student_name"
         android:inputType="text"/><!--//one line only-->
 
     <Button
