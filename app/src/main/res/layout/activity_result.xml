@@ -50,11 +50,29 @@
     <TextView
         android:id="@+id/textView_result"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/imageView_result"
-        android:gravity="center"
-        android:padding="10dp"
+        android:gravity="center_horizontal"
+        android:paddingTop="30dp"
         android:textColor="#000000"
         android:textSize="25sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center|bottom">
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/back"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/button_shape2"
+            android:paddingHorizontal="40dp"
+            android:textColor="#FFFFFF"
+            android:visibility="invisible"
+            android:textSize="20sp"/>
+    </LinearLayout>
 
 </RelativeLayout>

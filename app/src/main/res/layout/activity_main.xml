@@ -16,44 +16,55 @@
         android:textColor="#000000"
         android:textSize="25sp" />
 
-    <EditText
-        android:id="@+id/editText_studentName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="260dp"
-        android:hint="@string/student_name"
-        android:autofillHints="@string/student_name"
-        android:inputType="text"/><!--//one line only-->
-
-    <Button
-        android:id="@+id/btn_start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20sp"
-        android:background="@drawable/button_shape"
-        android:text="@string/start_btn"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp" />
-    <TableRow
-        android:id="@+id/tableRowForButtons"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-        <ImageView
-            android:id="@+id/image_call"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="130dp"
-            android:layout_marginEnd="50dp"
-            android:contentDescription="@string/call_support"
-            android:src="@drawable/ic_contact_phone" />
-        <ImageView
-            android:id="@+id/image_email"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:contentDescription="@string/email_support"
-            android:src="@drawable/ic_email" />
-    </TableRow>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center|bottom">
+
+        <EditText
+            android:id="@+id/editText_studentName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:autofillHints="@string/student_name"
+            android:hint="@string/student_name"
+            android:inputType="text" /><!--//one line only-->
+
+        <Button
+            android:id="@+id/btn_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginVertical="10dp"
+            android:background="@drawable/button_shape"
+            android:text="@string/start_btn"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:id="@+id/tableRowForButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginVertical="10dp"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/image_call"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="30dp"
+                android:contentDescription="@string/call_support"
+                android:src="@drawable/ic_contact_phone" />
+
+            <ImageView
+                android:id="@+id/image_email"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:contentDescription="@string/email_support"
+                android:src="@drawable/ic_email" />
+        </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>

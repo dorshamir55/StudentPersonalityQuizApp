@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -22,6 +23,7 @@ public class ResultActivity extends AppCompatActivity {
     private TextView resultTextView;
     private ProgressBar progressBar;
     private ImageView resultImageView;
+    private Button backB;
     private int score;
 
     @Override
@@ -37,6 +39,14 @@ public class ResultActivity extends AppCompatActivity {
         progressBar = (ProgressBar) (findViewById(R.id.progressBar_result));
         resultImageView = (ImageView) (findViewById(R.id.imageView_result));
         new LoaderAsyncTask(this).execute(10);
+
+        backB = findViewById(R.id.back_button);
+        backB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ResultActivity.this, MainActivity.class));
+            }
+        });
     }
 
     @Override
@@ -162,7 +172,13 @@ public class ResultActivity extends AppCompatActivity {
             Toast.makeText(activity, s, Toast.LENGTH_SHORT).show();
             activity.progressBar.setProgress(0);
             activity.progressBar.setVisibility(View.INVISIBLE);
+            activity.backB.setVisibility(View.VISIBLE);
             activity.checkPersonality(activity.score);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+//        super.onBackPressed();
     }
 }
