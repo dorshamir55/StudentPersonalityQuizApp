@@ -6,6 +6,12 @@
     android:background="#7400B8D4"
     android:orientation="vertical">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/lightBlue"/>
+
     <TextView
         android:id="@+id/textView_titleresult"
         android:layout_width="match_parent"
