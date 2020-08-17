@@ -12,7 +12,7 @@ Included: Asynctask, ListView, Json.
 ![Opening screen](https://github.com/Dorshamir55/StudentPersonalityQuizApp/raw/master/ScreenShots/Opening_screen.jpg)
 ![Home](https://github.com/Dorshamir55/StudentPersonalityQuizApp/raw/master/ScreenShots/Home.jpg)
 ![Home - name inserted](https://github.com/Dorshamir55/StudentPersonalityQuizApp/raw/master/ScreenShots/Home_name_inserted.jpg)
-![Strat quiz](https://github.com/Dorshamir55/StudentPersonalityQuizApp/raw/master/ScreenShots/Strat_quiz.jpg)
+![Start quiz](https://github.com/Dorshamir55/StudentPersonalityQuizApp/raw/master/ScreenShots/Start_quiz.jpg)
 ![End quiz](https://github.com/Dorshamir55/StudentPersonalityQuizApp/raw/master/ScreenShots/End_quiz.jpg)
 ![Loading result](https://github.com/Dorshamir55/StudentPersonalityQuizApp/raw/master/ScreenShots/Loading_result.jpg)
 ![Result](https://github.com/Dorshamir55/StudentPersonalityQuizApp/raw/master/ScreenShots/Result.jpg)
